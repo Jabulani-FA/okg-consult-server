@@ -1,15 +1,15 @@
 const nodeMailer = require("nodemailer");
-const mailgun = require("mailgun-js");
+// const mailgun = require("mailgun-js");
 
 exports.sendMail = (req, res) => {
   // Logic to send mail
   const { name, email, phone, message } = req.body;
 
   //send acknowledgment to user using mailgun
-  const mg = mailgun({
-    apiKey: process.env.MAILGUN_API_KEY,
-    domain: process.env.MAILGUN_DOMAIN,
-  });
+  //   const mg = mailgun({
+  //     apiKey: process.env.MAILGUN_API_KEY,
+  //     domain: process.env.MAILGUN_DOMAIN,
+  //   });
 
   //   send mail to support team
   const transporter = nodeMailer.createTransporter({
@@ -22,7 +22,7 @@ exports.sendMail = (req, res) => {
     },
   });
 
-    //   compose mail options for client
+  //   compose mail options for client
   const mailOptions = {
     from: '"OKG Consult" <support@okgconsult.com>',
     to: email,
@@ -50,7 +50,7 @@ exports.sendMail = (req, res) => {
            <p>Best regards,<br/>OKG Consult Team</p>`,
   };
 
-    //   compose mail options for info team
+  //   compose mail options for info team
   const mailOptions3 = {
     from: '"OKG Consult" <info@okgconsult.com>',
     to: "info@okgconsult.com",
@@ -63,40 +63,40 @@ exports.sendMail = (req, res) => {
            <p>Best regards,<br/>OKG Consult Team</p>`,
   };
 
-    //   send mail to client
+  //   send mail to client
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-        // Log errors
+      // Log errors
       console.log(error);
       res.status(500).send("Error sending mail");
     } else {
-        // Log successful email sending
+      // Log successful email sending
       console.log("Email sent: " + info.response);
       res.send("Mail sent");
     }
   });
 
-    //   send mail to support team
+  //   send mail to support team
   transporter.sendMail(mailOptions2, (error, info) => {
     if (error) {
-        // Log errors
+      // Log errors
       console.log(error);
       res.status(500).send("Error sending mail");
     } else {
-        // Log successful email sending
+      // Log successful email sending
       console.log("Email sent: " + info.response);
       res.send("Mail sent");
     }
   });
 
-    //   send mail to info team
+  //   send mail to info team
   transporter.sendMail(mailOptions3, (error, info) => {
     // Check for errors
     if (error) {
       console.log(error);
       res.status(500).send("Error sending mail");
     } else {
-        // Log successful email sending
+      // Log successful email sending
       console.log("Email sent: " + info.response);
       res.send("Mail sent");
     }
