@@ -8,11 +8,10 @@
     "npm": "9.x"
   },
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Olorunfemi",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
