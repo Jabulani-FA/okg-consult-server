@@ -20,6 +20,13 @@ app.use(
     optionsSuccessStatus: 200,
   }),
 );
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/", (req, res) => {
+  res.send("OKG Consult Backend is running");
+});
+
+// Dynamically load all routes from the routes directory
 fs.readdirSync("./routes").forEach((file) => {
   if (file.endsWith(".js")) {
     const route = require(`./routes/${file}`);
