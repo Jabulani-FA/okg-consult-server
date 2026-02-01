@@ -14,14 +14,16 @@ exports.sendMail = async (req, res) => {
 
     //   send mail to support team
     const transporter = nodeMailer.createTransport({
-      host: process.env.NODEMAILER_HOST,
-      port: process.env.NODEMAILER_PORT,
-      secure: true,
-      auth: {
-        user: process.env.NODEMAILER_USER,
-        pass: process.env.NODEMAILER_PASS,
-      },
-    });
+  host: process.env.NODEMAILER_HOST,
+  port: Number(process.env.NODEMAILER_PORT), // important
+  secure: false, // MUST be false for 587
+  auth: {
+    user: process.env.NODEMAILER_USER,
+    pass: process.env.NODEMAILER_PASS,
+  },
+  connectionTimeout: 60_000,
+  greetingTimeout: 60_000,
+});
 
     //   compose mail options for client
     const mailOptions = {
