@@ -5,6 +5,9 @@ exports.sendMail = async (req, res) => {
   // Logic to send mail
   try {
     const { name, email, phone, message } = req.body;
+    if (!name || !email || !phone || !message) {
+      return res.status(500).send("All fields are required");
+    }
 
     //send acknowledgment to user using mailgun
     //   const mg = mailgun({
@@ -21,8 +24,8 @@ exports.sendMail = async (req, res) => {
         user: process.env.NODEMAILER_USER,
         pass: process.env.NODEMAILER_PASS,
       },
-      connectionTimeout: 60_000,
-      greetingTimeout: 60_000,
+      //   connectionTimeout: 60_000,
+      //   greetingTimeout: 60_000,
     });
 
     //   compose mail options for client
