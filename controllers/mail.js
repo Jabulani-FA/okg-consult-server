@@ -19,7 +19,7 @@ exports.sendMail = async (req, res) => {
     const transporter = nodeMailer.createTransport({
       host: process.env.NODEMAILER_HOST,
       port: Number(process.env.NODEMAILER_PORT), // important
-      secure: false, // MUST be false for 587
+      secure: true, // MUST be false for 587
       auth: {
         user: process.env.NODEMAILER_USER,
         pass: process.env.NODEMAILER_PASS,
