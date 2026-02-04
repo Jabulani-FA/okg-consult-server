@@ -1,7 +1,8 @@
 const supabase = require("./db");
+const jwt = require("jsonwebtoken");
 
 // create admin with info@okgconsult.com
-exports.createAdmin() = async () => {
+exports.createAdmin = async () => {
   const { data, error } = await supabase.auth.admin.createUser({
     email: "info@okgconsult.com",
     password: "2a.foMhc",
@@ -16,7 +17,7 @@ exports.createAdmin() = async () => {
 }
 
 // Call the function to create the admin user
-createAdmin();
+// createAdmin();
 
 // check if admin exists and login details
 exports.loginAdmin = async (req, res) => {
