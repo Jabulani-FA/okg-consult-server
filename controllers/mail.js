@@ -39,7 +39,7 @@ exports.sendMail = async (req, res) => {
            <p>Thank you for contacting OKG Consult. We have received your message and will get back to you shortly.</p>
            <p>Here is a summary of your message:${message} \n And your phone number: ${phone}</p>
            <p>We appreciate your interest in our services and look forward to assisting you.</p>
-           <p>If you have any further questions, feel free to reply to this email or contact us at <a href="mailto: info@okgconsult.com">info@okgconsult.com</a>.</p>
+           <p>If you have any further questions, feel free to reply to this email or contact us at <a href="mailto:info@okgconsult.com">info@okgconsult.com</a>.</p>
            <p>Best regards,<br/>OKG Consult Team</p>`,
     };
     //   compose mail options for support team
