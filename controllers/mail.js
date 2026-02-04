@@ -30,7 +30,7 @@ exports.sendMail = async (req, res) => {
 
     //   compose mail options for client
     const mailOptions = {
-      from: '"OKG Consult" <support@okgconsult.com>',
+      from: '"OKG Consult" <info@okgconsult.com>',
       to: email,
       replyTo: process.env.NODEMAILER_USER,
       subject: "Thank you for contacting OKG Consult",
