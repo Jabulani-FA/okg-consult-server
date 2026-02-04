@@ -34,6 +34,8 @@ app.get("/", (req, res) => {
 //   }
 // });
 const mailRoutes = require("./routes/mail");
+const userRoutes = require("./routes/user");
 app.use("/api", mailRoutes);
+app.use("/api", userRoutes)
 
 module.exports = app;
